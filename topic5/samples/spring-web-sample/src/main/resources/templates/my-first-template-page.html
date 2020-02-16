@@ -3,6 +3,7 @@
     <title>My first page</title>
 </head>
 <body>
+<th:block th:include="common::my-header" />
 My first page content
 <br />
 page:  <th:block th:text="${myPageParam}" />
