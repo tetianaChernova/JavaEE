@@ -32,13 +32,26 @@ public class UserService {
 
     @Transactional
     public List<UserEntity> findAllUsers() {
-        return entityManager.createQuery("FROM UserEntity", UserEntity.class)
+        return entityManager.createQuery("SELECT u FROM UserEntity u", UserEntity.class)
             .getResultList();
     }
 
     @Transactional
     public long countUsers() {
         return entityManager.createQuery("SELECT COUNT(u) FROM UserEntity u", Long.class)
+            .getSingleResult();
+    }
+
+    @Transactional
+    public List<UserEntity> findUserWhereFirstOrLastNameContains(String searchText) {
+        return entityManager.createQuery("SELECT u FROM UserEntity u WHERE u.firstName LIKE :query OR u.lastName LIKE :query", UserEntity.class)
+            .setParameter("query", '%' + searchText + '%')
+            .getResultList();
+    }
+
+    public UserEntity findByEmail(String email) {
+        return entityManager.createNamedQuery(UserEntity.FIND_BY_EMAIL, UserEntity.class)
+            .setParameter("email", email)
             .getSingleResult();
     }
 
