@@ -22,7 +22,8 @@ create table user_to_permissions (
 
 insert into users (login, password) values
     ('admin', 'password'),
-    ('catalog', 'password');
+    ('catalog', 'password'),
+    ('user', 'password');
 
 insert into permissions (permission) values
     ('VIEW_ADMIN'),
