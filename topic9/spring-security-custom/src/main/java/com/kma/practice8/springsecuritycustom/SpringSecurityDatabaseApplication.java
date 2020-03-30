@@ -1,9 +1,7 @@
-package com.kma.practice8.springsecuritydb;
+package com.kma.practice8.springsecuritycustom;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-
-import com.kma.practice8.springsecuritydb.domain.type.Permission;
 
 @SpringBootApplication
 public class SpringSecurityDatabaseApplication {
