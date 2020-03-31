@@ -31,7 +31,8 @@ public class MyUserDetailsService implements UserDetailsService {
             username,
             user.getPassword(),
             mapAuthorities(user.getPermissions()),
-            user.getCustomAuthField()
+            user.getCustomAuthField(),
+            "company1"
         );
     }
 
