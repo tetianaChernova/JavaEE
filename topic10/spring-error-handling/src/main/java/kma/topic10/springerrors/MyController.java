@@ -20,11 +20,6 @@ public class MyController {
         throw new IOException();
     }
 
-    @RequestMapping("/error-500")
-    public String errorPage() {
-        return "error-500";
-    }
-
     @RequestMapping("/divide")
     public ResponseEntity<Integer> divide(
         @RequestParam("a") int a,
