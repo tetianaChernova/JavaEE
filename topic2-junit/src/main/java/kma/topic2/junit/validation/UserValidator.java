@@ -15,10 +15,10 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class UserValidator {
 
-    private final UserRepository userHttpClient;
+    private final UserRepository userRepository;
 
     public void validateNewUser(final NewUser newUser) {
-        if (userHttpClient.checkLoginExists(newUser.getLogin())) {
+        if (userRepository.isLoginExists(newUser.getLogin())) {
             throw new LoginExistsException(newUser.getLogin());
         }
 

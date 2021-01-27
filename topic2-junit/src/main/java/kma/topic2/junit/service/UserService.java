@@ -21,7 +21,7 @@ public class UserService {
         log.info("Try to create new user: {}", newUser.getLogin());
         userValidator.validateNewUser(newUser);
         final User user = userRepository.saveNewUser(newUser);
-        log.info("New user is created: {}", newUser);
+        log.info("New user is created: {}", user);
     }
 
     public User getUserByLogin(final String login) {

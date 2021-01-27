@@ -18,7 +18,7 @@ public class UserRepository {
     private static final Map<String, User> USER_DATABASE = initDatabase();
 
     public User saveNewUser(final NewUser newUser) {
-        log.info("Creating new user via HTTP request. new user: {}", newUser);
+        log.info("Creating new user: {}", newUser);
 
         final User user =  User.builder()
             .fullName(newUser.getFullName())
@@ -37,7 +37,7 @@ public class UserRepository {
             .orElseThrow(() -> new UserNotFoundException(login));
     }
 
-    public boolean checkLoginExists(final String login) {
+    public boolean isLoginExists(final String login) {
         log.info("Check that user with login: {} exists", login);
 
         return login.equals("existing-login");
