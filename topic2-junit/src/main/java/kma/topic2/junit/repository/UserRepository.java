@@ -40,7 +40,7 @@ public class UserRepository {
     public boolean isLoginExists(final String login) {
         log.info("Check that user with login: {} exists", login);
 
-        return login.equals("existing-login");
+        return USER_DATABASE.containsKey(login);
     }
 
     private static Map<String, User> initDatabase() {
